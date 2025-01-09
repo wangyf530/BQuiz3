@@ -1,5 +1,4 @@
-﻿<!-- 切版 刪掉包含mm以外的 -->
-<div class="tab rb" style="width:87%;">
+﻿<div class="tab rb" style="width:87%;">
     <div style="background:#FFF; width:100%; color:#333; text-align:left">
         <video src="movie/03B20v.avi" width="300px" height="250px" controls="" style="float:right;"></video>
         <font style="font-size:24px"> <img src="Profile page_files/03B20.png" width="200px" height="250px"
