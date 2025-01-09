@@ -18,15 +18,19 @@
         <div id="top" class="ct" style=" background:#999 center; background-size:cover; " title="替代文字">
             <h1>ABC影城</h1>
         </div>
-        <div id="top2"> <a href="03P01.htm">首頁</a> <a href="03P02.htm">線上訂票</a> <a href="#">會員系統</a> <a
-                href="03P03.htm">管理系統</a> </div>
+        <div id="top2"> 
+          <a href="index.php">首頁</a> 
+          <a href="order.php">線上訂票</a> 
+          <a href="#">會員系統</a> 
+          <a href="back.php">管理系統</a> 
+        </div>
         <div id="text"> <span class="ct">最新活動</span>
             <marquee direction="right">
                 ABC影城票價全面八折優惠1個月
             </marquee>
         </div>
         <div id="mm">
-          <!-- 切版 刪掉中間部分移動到front/main.php 然後用include的方式顯示其他頁面 -->
+            <!-- 切版 刪掉中間部分移動到front/main.php 然後用include的方式顯示其他頁面 -->
             <?php
               $do = $_GET['do']??'main';
               $file = "./front/$do.php";

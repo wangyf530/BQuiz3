@@ -1,15 +1,9 @@
 <?php
 session_start();
 class DB{
-    protected $dsn = "mysql:host=localhost; charset=utf8; dbname=db13";
+    protected $dsn = "mysql:host=localhost; charset=utf8; dbname=db19";
     protected $pdo;
     protected $table;
-    static public $type=[
-        1 =>'健康新知',  
-        2 =>'菸害防治',
-        3 =>'癌症防治',
-        4 =>'慢性病防治'
-    ];
 
     function __construct($table){
         $this -> table = $table;
@@ -32,16 +26,13 @@ class DB{
                 $where = $this->a2s($arg[0]);
                 $sql = $sql . " WHERE " . join(" && ",$where);
             } else {
-                // $sql = $sql.$arg[0];
                 $sql .= $arg[0];
-            }
-            
+            } 
         }
 
         if(!empty($arg[1])){
             $sql = $sql . $arg[1];
         }
-        // return $this -> q("SELECT * FROM $this->table");
         return $this->fetchALL($sql);
     }
 
@@ -143,19 +134,17 @@ class DB{
     protected function math($math, $col='id',$where=[]){
         $sql = "SELECT $math($col) FROM $this->table";
         if(!empty($where)){
-            // $tmp=[];
             $tmp = $this->a2s($where);
             $sql = $sql . " WHERE " . join(" && ", $tmp);
         }
         // echo $sql."<br>";
-        // return $this->pdo->query($sql)->fetch();
         return $this->pdo->query($sql)->fetchColumn();
     }
 }
 
 // 最萬用的 但要打sql語法
 function q($sql){
-    $pdo = new PDO("mysql:host=localhost; charset=utf8; dbname=db13",'root','');
+    $pdo = new PDO("mysql:host=localhost; charset=utf8; dbname=db19",'root','');
     return $pdo -> query($sql) -> fetchAll();
 }
 
@@ -170,27 +159,6 @@ function to($url){
 }
 
 // 宣告db
-$TOTAL = new DB('total');
-$USER = new DB('users');
-$NEWS = new DB('news');
-$QUE = new DB('que');
-$LOG = new DB('log');
-
-
-if(!isset($_SESSION['view'])){
-    if($TOTAL->count(['date'=>date("Y-m-d")])>0){
-        $total = $TOTAL->find(['date'=>date("Y-m-d")]);
-        $total['total']++;
-        $TOTAL->save($total);
-    } else {
-        $TOTAL->save(['date'=>date("Y-m-d"),'total'=>1]);
-    }
-    $_SESSION['view']=1;
-} 
-
-
-
-
-
+$Poster=new DB('poster');   
 
 ?>
