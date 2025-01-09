@@ -5,8 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>影城</title>
 <link rel="stylesheet" href="css/css.css">
-<link href="Manage Page_files/s2.css" rel="stylesheet" type="text/css">
-<script src="scripts/jquery-1.9.1.min.js"></script>
+<link href="css/s2.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
       <h2 class="ct">請選擇所需功能</h2>
     </div>
   </div>
-  <div id="bo"> ©Copyright 2010~2014 ABC影城 版權所有 </div>
+  <div id="bo"> ©Copyright 2010~2025 ABC影城 版權所有 </div>
 </div>
 </body>
 </html>
