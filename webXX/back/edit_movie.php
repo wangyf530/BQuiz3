@@ -116,7 +116,7 @@
 </div>
 
 <div class="ct">
-    <input type="submit" value="新增">
+    <input type="submit" value="編輯">
     <input type="reset" value="重置">
 </div>
 </form>
