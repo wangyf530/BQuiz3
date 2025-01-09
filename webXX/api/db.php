@@ -159,6 +159,6 @@ function to($url){
 }
 
 // 宣告db
-$Poster=new DB('poster');   
+$Poster=new DB('posters');   
 
 ?>
