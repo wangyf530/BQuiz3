@@ -1,19 +1,18 @@
 <!-- default -->
 <?php
-session_start();
 // 如果有帳號並且帳密正確
 if(isset($_POST['acc'])){
     if($_POST['acc']=='admin' && $_POST['pw']=='1234'){
         $_SESSION['login']=1;
     } else {
-        alert("帳號密碼錯誤");
+        echo("帳號密碼錯誤");
     } 
 }
 
 // 如果沒登入 -> 登入畫面
 if(!isset($_SESSION['login'])){
 ?>
-<form action="?" method="post">
+<form action="" method="post">
 
     <table class="tab" style="width:500px;">
         <tr>
@@ -33,10 +32,9 @@ if(!isset($_SESSION['login'])){
         <input type="submit" value="登入">
         <input type="reset" value="重置">
     </div>
-</form>
-<script>
-location.href = 'back.php?do=login'
-</script>
+    <script>
+        location.href = 'back.php?do=login'
+    </script>
 <?php
     exit();
 } else {
@@ -47,3 +45,4 @@ location.href = 'back.php?do=login'
 <?php 
 } 
 ?>
+</form>
