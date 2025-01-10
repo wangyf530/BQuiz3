@@ -56,7 +56,7 @@
         <div class="form">
             <div>片長</div>：
             <div>
-                <input type="number" name="" id="" required>
+                <input type="number" name="length" id="" required>
             </div>
         </div>
         <div class="form">
@@ -111,7 +111,7 @@
 <div class='main'>
     <div class='left'>劇情簡介</div>
     <div class='right'>
-        <textarea name="" id="" style='width:99%'></textarea>
+        <textarea name="intro" id="" style='width:99%'></textarea>
     </div>
 </div>
 
