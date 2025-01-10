@@ -9,7 +9,7 @@
     <title>影城</title>
     <link rel="stylesheet" href="css/css.css">
     <!-- 改路徑 -->
-    <link href="css/s2.css" rel="stylesheet" type="text/css">
+    <!-- <link href="css/s2.css" rel="stylesheet" type="text/css"> -->
     <!-- 改路徑 -->
     <script src="js/jquery-3.4.1.min.js"></script>
 </head>
@@ -21,7 +21,7 @@
         </div>
         <div id="top2"> 
           <a href="index.php">首頁</a> 
-          <a href="order.php">線上訂票</a> 
+          <a href="?do=order">線上訂票</a> 
           <a href="#">會員系統</a> 
           <a href="back.php">管理系統</a> 
         </div>
