@@ -35,7 +35,7 @@
                 </button>
                 <button class="sw" data-id="<?=$row['id'];?>" data-sw="<?=$prev;?>">往上</button>
                 <button class="sw" data-id="<?=$row['id'];?>" data-sw="<?=$next;?>">往下</button>
-                <button onclick="location.href='?do=edit_move&id=<?=$row['id'];?>'">編輯電影</button>
+                <button onclick="location.href='?do=edit_movie&id=<?=$row['id'];?>'">編輯電影</button>
                 <button class="del" data-id="<?=$row['id'];?>">刪除電影</button>
             </div>
             <!-- text -->

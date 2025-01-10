@@ -32,7 +32,7 @@
 
 </style>
 
-<form action="./api/add_movie.php" method="post" enctype="multipart/form-data">
+<form action="./api/save_movie.php" method="post" enctype="multipart/form-data">
 <div class='main'>
     <div class='left'>影片資料</div>
     <div class="right">
@@ -47,8 +47,8 @@
             <div>
                 <select name="level" id="" required>
                     <option value="1">普通級</option>
-                    <option value="2">保護級</option>
-                    <option value="3">輔導級</option>
+                    <option value="2">輔導級</option>
+                    <option value="3">保護級</option>
                     <option value="4">限制級</option>
                 </select>
             </div>
