@@ -120,7 +120,7 @@ $row = $Movie->find($_GET['id']);
 <div class='main'>
     <div class='left'>劇情簡介</div>
     <div class='right'>
-        <textarea name="intro" id="" value="<?=ln2br($row['intro']);?>" style='width:99%'></textarea>
+        <textarea name="intro" id="" value="<?=$row['intro'];?>" style='width:99%'></textarea>
     </div>
 </div>
 
