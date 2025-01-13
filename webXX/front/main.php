@@ -134,9 +134,8 @@
             <!-- 下方控制 -->
             <div class="controls">
                 <!-- 左箭頭 -->
-                <div class="left">
-
-                </div>
+                <div class="left"></div>
+                <!-- 中間顯示縮略圖 -->
                 <div class='icons'>
                     <?php foreach($posters as $idx => $poster): ?>
                     <div class="icon">
@@ -147,9 +146,7 @@
                 </div>
 
                 <!-- 右箭頭 -->
-                <div class="right">
-
-                </div>
+                <div class="right"></div>
             </div>
         </div>
     </div>
@@ -158,17 +155,16 @@
 <script>
 $(".poster").eq(0).show();
 
-let slider = setInterval(() => {
-    sliders();
-}, 2500);
-
+// 沒有let的話就停不了
+let slider = setInterval(() => {sliders();}, 2500);
+// let now,next;
 // 輪播
 function sliders() {
-    let now = $(".poster:visible").index();
-    let next = ($(".poster").length == now + 1) ? 0 : now + 1;
+    now = $(".poster:visible").index();
+    next = ($(".poster").length == now + 1) ? 0 : now + 1;
     let ani = $(".poster").eq(next).data('ani');
 
-    // console.log(now, next)
+    console.log(now, next)
 
     switch (ani) {
         case 1:
@@ -195,12 +191,39 @@ function sliders() {
 
 let total = $(".icon").length;
 let p = 0;
+// console.log('total',total);
+
 $(".left,.right").on("click",function(){
-    if((p+1)<= (total-4)){
-        p++;
-        $(".icon").animate({right:80*p});
+    if($(this).hasClass('left')){
+        /*if(p-1>0){
+            p--;
+        } else {
+            p = total-1;
+        } */
+    //    最後就是0不會出現負數(空白)
+        p=(p-1>=0)?p-1:0;
+    } else {
+        /*if(p+1<total-4){
+            p++;
+        } else {
+            p=0;
+        }*/
+       p=(p+1<=total-4)?p+1:total-4;
     }
+    // console.log('p=',p);
+    
+    $(".icon").animate({right:p*80});
 })
+
+$(".icons").hover(
+    function(){
+        clearInterval(slider);
+    },
+    function(){
+        slider = setInterval(() => {sliders();}, 2500);
+    }
+
+)
 </script>
 
 <div class="half">
