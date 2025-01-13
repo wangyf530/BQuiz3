@@ -25,22 +25,36 @@
         height: 85px;
         text-align: center;
         padding:2px;
+        position:relative;
+    }
+    
+    .null{
+        background:url("icon/03D02.png") center no-repeat;
+    }
+    .chk{
+        position:absolute;
+        text-align: center;
+        right:2px;
+        bottom:2px;
     }
 
+    .seated{
+        background:url("icon/03D03.png") center no-repeat;
+    }
 </style>
 
 <?php include_once "db.php";?>
 
 <div id="info">
 <?php
-for ($i=1; $i <= 4; $i++):
-    for($j=1; $j<=5; $j++):
+for ($i=1; $i <=20; $i++):
 ?>
-<div class="seat">
-    <?php echo $i."排". $j."號";?>
+<div class="seat null seated">
+    <span><?=floor($i/5)+1;?>排<?=($i%5+1);?>號</span>
+
+    <input type="checkbox" class='chk' id="" value="<?=$i;?>">
 </div>
-<?php endfor;
-endfor; ?>
+<?php endfor;?>
 </div>
 
 
