@@ -1,6 +1,6 @@
 <?php include_once "db.php";
 
-$movie=$Movie->find($_GET['id']);
+$movie=$Movie->find($_GET['movie']);
 $date = $_GET['date'];
 
 $sess=[
@@ -50,7 +50,7 @@ if $now < 14{
 for($i=$start; $i<=5; $i++) {
     // 如果選取日期是今天 要看時間
     // 如果選區日期是今天以後 都可以
-    echo "<option value='${$sess[$i]}'>";
+    echo "<option value='{$sess[$i]}'>";
     echo $sess[$i];
     echo " 剩餘座位 $seats";
     echo "</option>";
