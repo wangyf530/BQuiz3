@@ -24,6 +24,10 @@
 .order-form tr:nth-child(even) {
     background: #ccc;
 }
+
+#booking *{
+    box-sizing:border-box;
+}
 </style>
 
 <div id="order">
@@ -33,19 +37,19 @@
         <tr>
             <td>電影：</td>
             <td>
-                <select name="movie" id="movie"></select>
+                <select name="movie" id="movie" style="width:300px;"></select>
             </td>
         </tr>
         <tr>
             <td>日期：</td>
             <td>
-                <select name="date" id="date"></select>
+                <select name="date" id="date" style="width:300px;"></select>
             </td>
         </tr>
         <tr>
             <td>場次：</td>
             <td>
-                <select name="session" id="session"></select>
+                <select name="session" id="session" style="width:300px;"></select>
             </td>
         </tr>
         <tr>
@@ -124,9 +128,14 @@ function booking(){
         session:$("#session").val()
     }
 
-    $("#booking").html(`${movie.id},${movie.date},${movie.name}, ${movie.session}, <button onclick="$('#order,#booking').toggle()">上一步</button>`);
+    // $("#booking").html(`${movie.id},${movie.date},${movie.name}, ${movie.session}, <button onclick="$('#order,#booking').toggle()">上一步</button>`);
 
-    $("#booking, #order").toggle();
+    $.get("api/booking.php",movie, function(booking){
+        $("#booking").html(booking);
+        $("#booking, #order").toggle();
+    })
+
+    // $("#booking, #order").toggle();
 }
 
 </script>
