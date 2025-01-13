@@ -157,14 +157,17 @@ $(".poster").eq(0).show();
 
 // 沒有let的話就停不了
 let slider = setInterval(() => {sliders();}, 2500);
-// let now,next;
+
 // 輪播
-function sliders() {
+function sliders(next=-1) {
     now = $(".poster:visible").index();
-    next = ($(".poster").length == now + 1) ? 0 : now + 1;
+    // 默認-1 從頭開始輪播
+    if(next==-1){
+        next = ($(".poster").length == now + 1) ? 0 : now + 1;
+    }
     let ani = $(".poster").eq(next).data('ani');
 
-    console.log(now, next)
+    console.log(now, next,ani)
 
     switch (ani) {
         case 1:
@@ -214,7 +217,7 @@ $(".left,.right").on("click",function(){
     
     $(".icon").animate({right:p*80});
 })
-
+// 滑鼠移入移出的時候會停止輪播跟繼續動畫
 $(".icons").hover(
     function(){
         clearInterval(slider);
@@ -224,6 +227,11 @@ $(".icons").hover(
     }
 
 )
+// 點擊小圖會切換大圖
+$(".icon").on("click",function(){
+    let next = $(this).index();
+    sliders(next);
+})
 </script>
 
 <div class="half">
