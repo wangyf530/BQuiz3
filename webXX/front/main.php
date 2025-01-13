@@ -167,7 +167,7 @@ function sliders(next=-1) {
     }
     let ani = $(".poster").eq(next).data('ani');
 
-    console.log(now, next,ani)
+    // console.log(now, next,ani)
 
     switch (ani) {
         case 1:

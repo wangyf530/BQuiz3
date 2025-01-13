@@ -7,12 +7,12 @@
     background: #eee;
 }
 
-.order-form:nth-child(1) {
+.order-form td:nth-child(1) {
     width: 100px;
     text-align: center;
 }
 
-.order-form:nth-child(2) {
+.order-form td:nth-child(2) {
     width: 300px;
     text-align: left;
 }
@@ -32,19 +32,25 @@
         <tr>
             <td>電影：</td>
             <td>
-                <select name="movie" id="movie"></select>
+                <select name="movie" id="movie">
+
+                </select>
             </td>
         </tr>
         <tr>
             <td>日期：</td>
             <td>
-                <select name="date" id="date"></select>
+                <select name="date" id="date">
+
+                </select>
             </td>
         </tr>
         <tr>
             <td>場次：</td>
             <td>
-                <select name="session" id="session"></select>
+                <select name="session" id="session">
+
+                </select>
             </td>
         </tr>
         <tr>
@@ -55,3 +61,50 @@
         </tr>
     </table>
 </form>
+
+<script>
+getMovies();
+let id = new URLSearchParams(location.href).get('id');
+// object
+// console.log(id);
+
+// 選擇的電影被更改的時候 再重新getDays()獲取可以看的日期
+$("#movie").on("change",function(){
+    getDays();
+})
+
+// 選擇的日期被更改的時候 再重新getSessions() 獲取可以看的時間
+$("#date").on("change",function(){
+    getSessions();
+})
+
+
+
+// 獲取上映三天內顯示的電影
+function getMovies() {
+    $.get("api/get_movies.php", function(movies) {
+        console.log('movies', movies);
+        $("#movie").html(movies);
+        
+        if (parseInt(id) > 0) {
+            $(`#movie option[value='${id}']`).prop('selected', true);
+        }
+        getDays();
+    })
+}
+
+// 獲取該電影能看的日期
+function getDays(){
+    $.get("api/get_days.php",{movie:$("#movie").val()},function(days){
+        $("#date").html(days);
+        getSessions();
+    })
+}
+
+// 可以看的時間
+function getSessions(){
+    $.get("api/get_sessions.php",{movie:$("#movie").val(),date:$("#date").val()},function(sessions){
+        $("#session").html(sessions);
+    })
+}
+</script>

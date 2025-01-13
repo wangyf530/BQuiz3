@@ -32,9 +32,9 @@ if(!isset($_SESSION['login'])){
         <input type="submit" value="登入">
         <input type="reset" value="重置">
     </div>
-    <script>
+    <!-- <script>
         location.href = 'back.php?do=login'
-    </script>
+    </script> -->
 <?php
     exit();
 } else {

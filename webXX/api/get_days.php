@@ -1,0 +1,15 @@
+<?php include_once "db.php";
+
+$id = $_GET['movie'];
+$row=$Movie->find($id);
+$ondate = strtotime($row['ondate']);
+$today = strtotime(date("Y-m-d"));
+$passDay = floor(($today-$ondate)/(60*60*24));
+for($i=$passDay; $i<3; $i++) {
+    // 還有幾天可以上映
+    $date = date("Y-m-d",strtotime("+$i days", $ondate));
+    echo "<option value='$date'>";
+    echo $date;
+    echo "</option>";
+    
+}
