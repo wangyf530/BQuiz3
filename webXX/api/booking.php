@@ -6,11 +6,10 @@
         background-image:url("./icon/03D04.png");
         background-position:center;
         background-repeat:no-repeat;
-        padding:19px 110px 10px 110px;
+        padding:19px 110px 14px 110px;
 
         display:flex;
         flex-wrap:wrap;
-        flex-direction:row;
     }
 
     #movieInfo{
@@ -22,14 +21,12 @@
     }
 
     .seat{
-        width: 63px;
-        height: 83px;
+        width: 64px;
+        height: 85px;
         text-align: center;
+        padding:2px;
     }
 
-    .seat:nth-child(even){
-        background:lightblue;
-    }
 </style>
 
 <?php include_once "db.php";?>
