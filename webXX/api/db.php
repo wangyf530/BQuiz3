@@ -1,4 +1,7 @@
 <?php
+// 系統默認+0時區
+// 後續實際應用可以先get再set
+date_default_timezone_set("Asia/Taipei");
 session_start();
 class DB{
     protected $dsn = "mysql:host=localhost; charset=utf8; dbname=db19";
