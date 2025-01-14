@@ -61,7 +61,7 @@ for ($i=1; $i <=20; $i++):
 <div id="movieInfo" class='ct'>
     <div>您選擇的電影是：<?= $_GET['name'] ;?></div>
     <div>您選擇的時刻是：<?= $_GET['date']."&nbsp;&nbsp;".$_GET['session'] ;?></div>
-    <div>您已經勾選 <span id="tickets"></span> 張票，最多可以購買四張票</div>
+    <div>您已經勾選 <span id="tickets">0</span> 張票，最多可以購買四張票</div>
     <div>
         <button onclick="$('#booking,#order').toggle()"
         >上一步</button>
@@ -69,4 +69,37 @@ for ($i=1; $i <=20; $i++):
     </div>
 </div>
 
+<script>
+    let seats = new Array();
+
+    $(".chk").on("change",function(){
+        if($(this).prop('checked')){
+
+            // seats.push($(this).val());
+            if(seats.length>3){
+                alert("最多四張票");
+                $(this).prop('checked',false);
+            } else {
+                seats.push($(this).val());
+            }   
+        } else {
+            // 刪裡面的東西 刪除
+            seats.splice(seats.indexOf($(this).val()),1)
+        }
+
+        $("#tickets").text(seats.length);
+        // let num = ['1'=>'一','2'=>'二','3'=>'三','4'=>'四'];
+        // $("#tickets").text(num[seats.length]);
+        // console.log(seats);
+    })
+
+    function checkout(){
+        movie['seats']=seats;
+        console.log(movie);
+        $.post("api/checkout.php",movie,function(res){
+            console.log(res);
+            $("#mm").html(res);
+        })
+    }
+</script>
 

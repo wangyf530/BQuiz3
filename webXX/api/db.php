@@ -171,4 +171,5 @@ function to($url){
 // 宣告db
 $Poster = new DB('posters');   
 $Movie = new DB('movies');
+$Order = new DB('orders');
 ?>
