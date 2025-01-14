@@ -13,7 +13,9 @@ $sess=[
 $today = strtotime(date("Y-m-d"));
 // 不補零的小時
 $now= date("G")-13;
+$start = ($now>0)?ceil($now/2)+1:1;
 
+$seats = 20;
 /*
 if $now < 14{
     $list = 1;
@@ -42,9 +44,6 @@ if $now < 14{
  * 22-23    >=9     x
  */
 
- $start = ceil($now/1)+1;
-
- $seats = 20;
 //  算訂單
 
 for($i=$start; $i<=5; $i++) {
