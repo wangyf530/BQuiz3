@@ -47,6 +47,13 @@ if $now < 14{
 //  算訂單
 
 for($i=$start; $i<=5; $i++) {
+    $booked = $Order->sum('qt',[
+        'movie'=>$movie['name'],
+        'date'=>$date,
+        'session'=>$sess[$i]
+    ]);
+    echo $booked;
+    $seats = 20-$booked;
     // 如果選取日期是今天 要看時間
     // 如果選區日期是今天以後 都可以
     echo "<option value='{$sess[$i]}'>";

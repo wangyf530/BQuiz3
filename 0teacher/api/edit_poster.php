@@ -8,7 +8,7 @@ if(isset($_POST['id'])){
             $row=$Poster->find($id);
             $row['name']=$_POST['name'][$idx];
             $row['ani']=$_POST['ani'][$idx];
-            $row['sh']=(isset($_POST['sh']) && in_array($id,$_POST['sh'])?1:0);
+            $row['sh']=(isset($_POST['sh']) && in_array($id,$_POST['sh']))?1:0;
             $Poster->save($row);
         }
 
